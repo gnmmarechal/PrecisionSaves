@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrecisionSaves", "PrecisionSaves\PrecisionSaves.csproj", "{B2E07347-6990-46D9-A4E2-8E7FA95F495C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2E07347-6990-46D9-A4E2-8E7FA95F495C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E07347-6990-46D9-A4E2-8E7FA95F495C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E07347-6990-46D9-A4E2-8E7FA95F495C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E07347-6990-46D9-A4E2-8E7FA95F495C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
