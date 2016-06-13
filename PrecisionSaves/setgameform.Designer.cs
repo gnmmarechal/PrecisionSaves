@@ -54,6 +54,7 @@
             this.selectgame_button.TabIndex = 1;
             this.selectgame_button.Text = "Select";
             this.selectgame_button.UseVisualStyleBackColor = true;
+            this.selectgame_button.Click += new System.EventHandler(this.selectgame_button_Click);
             // 
             // setgameform
             // 
