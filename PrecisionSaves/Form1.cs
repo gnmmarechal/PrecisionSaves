@@ -57,7 +57,7 @@ namespace PrecisionSaves
                 }
                 else
                 {
-                    MessageBox.Show("Error locating saveDataBackup");
+                    MessageBox.Show("Error locating saveDataBackup.");
                 }
                 
             }
@@ -69,6 +69,10 @@ namespace PrecisionSaves
 
         private void timer_checker_Tick(object sender, EventArgs e)
         {
+            if (savedata_listbox.SelectedIndex == -1)
+                restore_save_button.Enabled = false;
+            else
+                restore_save_button.Enabled = true;
             string oldtitle = game_title;
             if (Properties.Settings.Default.gametitle == "")
             {
@@ -125,6 +129,16 @@ namespace PrecisionSaves
             if (!Directory.Exists(dire))
                 Directory.CreateDirectory(dire);
         }
+        private void wipedir(string path)
+        {
+            Directory.Delete(path, true);
+            Directory.CreateDirectory(path);
+        }
+        private void restorefromzip(string backupname,string savepath_original)
+        {
+            wipedir(savepath_original);
+            ZipFile.ExtractToDirectory(savedata_dir + "\\" + backupname + ".zip", savepath_original);
+        }
         private void backuptozip(string backupname, string savepath, string backuppath)
         {
             if (String.IsNullOrWhiteSpace(backupname))
@@ -174,6 +188,11 @@ namespace PrecisionSaves
                 MessageBox.Show("Please select the game and load a save first.");
             }
 
+        }
+
+        private void restore_save_button_Click(object sender, EventArgs e)
+        {
+            restorefromzip(savedata_listbox.GetItemText(savedata_listbox.SelectedItem), loadsavepath);
         }
     }
 

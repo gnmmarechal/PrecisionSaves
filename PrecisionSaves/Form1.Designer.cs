@@ -44,6 +44,7 @@
             this.savemanagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.installToSDCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wipeSavedataDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restore_save_button = new System.Windows.Forms.Button();
             this.menu_strip.SuspendLayout();
             this.maintabcontrol.SuspendLayout();
             this.backups_page.SuspendLayout();
@@ -96,6 +97,7 @@
             // 
             // backups_page
             // 
+            this.backups_page.Controls.Add(this.restore_save_button);
             this.backups_page.Controls.Add(this.backup_savedata_button);
             this.backups_page.Controls.Add(this.savedata_listbox);
             this.backups_page.Location = new System.Drawing.Point(4, 22);
@@ -178,6 +180,16 @@
             this.wipeSavedataDirectoryToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.wipeSavedataDirectoryToolStripMenuItem.Text = "Wipe Savedata Directory";
             // 
+            // restore_save_button
+            // 
+            this.restore_save_button.Location = new System.Drawing.Point(663, 468);
+            this.restore_save_button.Name = "restore_save_button";
+            this.restore_save_button.Size = new System.Drawing.Size(75, 23);
+            this.restore_save_button.TabIndex = 2;
+            this.restore_save_button.Text = "Restore";
+            this.restore_save_button.UseVisualStyleBackColor = true;
+            this.restore_save_button.Click += new System.EventHandler(this.restore_save_button_Click);
+            // 
             // mainform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,6 +229,7 @@
         private System.Windows.Forms.ToolStripMenuItem savemanagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem installToSDCardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wipeSavedataDirectoryToolStripMenuItem;
+        private System.Windows.Forms.Button restore_save_button;
     }
 }
 
