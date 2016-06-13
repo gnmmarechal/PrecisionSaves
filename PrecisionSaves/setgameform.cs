@@ -9,17 +9,16 @@ using System.Windows.Forms;
 
 namespace PrecisionSaves
 {
-    public partial class mainform : Form
+    public partial class setgameform : Form
     {
-        public mainform()
+        public setgameform()
         {
             InitializeComponent();
         }
 
-        private void setToolStripMenuItem_Click(object sender, EventArgs e)
+        private void setgameform_Load(object sender, EventArgs e)
         {
-            setgameform setform = new setgameform();
-            setform.Show();
+            game_combobox.SelectedItem = game_combobox.Text = "Hatsune Miku: Project Mirai DX (EUR/US)";
         }
     }
 }
