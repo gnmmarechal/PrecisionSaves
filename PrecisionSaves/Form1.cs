@@ -115,18 +115,8 @@ namespace PrecisionSaves
             PopulateListBox(savedata_listbox, savedata_dir);
         }
 
-        private void loadCheatList(string title)
-        {
 
-        }
-        private void MiraiDxUnlock(int offset, byte[] value)
-        {
-            FileStream miraiFS = new FileStream(save_file_original, FileMode.Open);
-            BinaryWriter miraiBR = new BinaryWriter(miraiFS);
-            miraiFS.Position = offset;
-            miraiBR.Write(value);
-            miraiFS.Close();
-        }
+
         private void createdirectories()
         {
             makedir(savedata_path);
@@ -200,6 +190,23 @@ namespace PrecisionSaves
         private void restore_save_button_Click(object sender, EventArgs e)
         {
             restorefromzip(savedata_listbox.GetItemText(savedata_listbox.SelectedItem), loadsavepath);
+        }
+
+
+        //Cheats and stuff
+
+        private void loadCheatList(string title)
+        {
+
+        }
+
+        private void MiraiDxUnlock(int offset, byte[] value)
+        {
+            FileStream miraiFS = new FileStream(save_file_original, FileMode.Open);
+            BinaryWriter miraiBR = new BinaryWriter(miraiFS);
+            miraiFS.Position = offset;
+            miraiBR.Write(value);
+            miraiFS.Close();
         }
     }
 
