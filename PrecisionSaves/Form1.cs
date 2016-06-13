@@ -45,26 +45,7 @@ namespace PrecisionSaves
 
         private void savedataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (game_title != "NULL")
-            {
-                FolderBrowserDialog selectdirdialog = new FolderBrowserDialog();
-                selectdirdialog.Description = "Please select SD:\\saveDataBackup";
-                DialogResult result = selectdirdialog.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    loadsavepath = selectdirdialog.SelectedPath;
-                    saveloaded = true;
-                }
-                else
-                {
-                    MessageBox.Show("Error locating saveDataBackup.");
-                }
-                
-            }
-            else
-            {
-                MessageBox.Show("Please select the game first.");
-            }
+            loadsavedata();
         }
 
         private void timer_checker_Tick(object sender, EventArgs e)
@@ -101,7 +82,33 @@ namespace PrecisionSaves
                 //System.Diagnostics.Debug.WriteLine(game_title);
             }
         }
+        private void loadsavedata()
+        {
+            if (game_title != "NULL")
+            {
+                FolderBrowserDialog selectdirdialog = new FolderBrowserDialog();
+                selectdirdialog.Description = "Please select SD:\\saveDataBackup";
+                DialogResult result = selectdirdialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    loadsavepath = selectdirdialog.SelectedPath;
+                    saveloaded = true;
+                    if (Directory.Exists(loadsavepath + "\\saveDataBackup"))
+                        loadsavepath = loadsavepath + "\\saveDataBackup";
 
+                }
+                else
+                {
+                    MessageBox.Show("Error locating saveDataBackup.");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please select the game first.");
+            }
+
+        }
         private void refreshbackuplist()
         {
             savedata_listbox.Items.Clear();
