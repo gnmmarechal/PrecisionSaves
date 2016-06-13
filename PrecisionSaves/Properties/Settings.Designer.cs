@@ -34,5 +34,17 @@ namespace PrecisionSaves.Properties {
                 this["gametitle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string backupname {
+            get {
+                return ((string)(this["backupname"]));
+            }
+            set {
+                this["backupname"] = value;
+            }
+        }
     }
 }

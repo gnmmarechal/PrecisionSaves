@@ -17,6 +17,11 @@ namespace PrecisionSaves
         //Vars
         public string game_title;
         public string save_file_original;
+        public string savedata_path = "savedata";
+        public string loadsavepath = "";
+        public string savedata_dir;
+        public string[] files;
+        public bool saveloaded = false;
         //
         public mainform()
         {
@@ -32,6 +37,7 @@ namespace PrecisionSaves
         private void mainform_Load(object sender, EventArgs e)
         {
             Properties.Settings.Default.gametitle = "";
+            Properties.Settings.Default.backupname = "";
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
             createdirectories();
@@ -42,8 +48,18 @@ namespace PrecisionSaves
             if (game_title != "NULL")
             {
                 FolderBrowserDialog selectdirdialog = new FolderBrowserDialog();
-                selectdirdialog.Description = "TEST";
-                selectdirdialog.ShowDialog();
+                selectdirdialog.Description = "Please select SD:\\saveDataBackup";
+                DialogResult result = selectdirdialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    loadsavepath = selectdirdialog.SelectedPath;
+                    saveloaded = true;
+                }
+                else
+                {
+                    MessageBox.Show("Error locating saveDataBackup");
+                }
+                
             }
             else
             {
@@ -53,6 +69,7 @@ namespace PrecisionSaves
 
         private void timer_checker_Tick(object sender, EventArgs e)
         {
+            string oldtitle = game_title;
             if (Properties.Settings.Default.gametitle == "")
             {
                 game_title = "NULL";
@@ -63,10 +80,28 @@ namespace PrecisionSaves
                     game_title = "Hatsune_Miku_Project_Mirai_DX";
                 else
                 {
+                    if (Properties.Settings.Default.gametitle == "Pokémon: Alpha Sapphire (EUR/US)")
+                        game_title = "Pokemon_Alpha_Sapphire";
+                    else
+                    {
 
+                    }
                 }
+                savedata_dir = savedata_path + "\\" + game_title;
                 loadCheatList(game_title);
+                makedir(savedata_dir);
+                if (oldtitle != game_title)
+                {
+                    refreshbackuplist();
+                }
+                //System.Diagnostics.Debug.WriteLine(game_title);
             }
+        }
+
+        private void refreshbackuplist()
+        {
+            savedata_listbox.Items.Clear();
+            PopulateListBox(savedata_listbox, savedata_dir);
         }
 
         private void loadCheatList(string title)
@@ -83,8 +118,12 @@ namespace PrecisionSaves
         }
         private void createdirectories()
         {
-            if (!Directory.Exists("savedata"))
-                Directory.CreateDirectory("savedata");
+            makedir(savedata_path);
+        }
+        private void makedir(string dire)
+        {
+            if (!Directory.Exists(dire))
+                Directory.CreateDirectory(dire);
         }
         private void backuptozip(string backupname, string savepath, string backuppath)
         {
@@ -92,8 +131,49 @@ namespace PrecisionSaves
             {
                 backupname = "PSBackup";
             }
-            string zipname = game_title + "_" + DateTime.Now.ToString("MM_dd_yyyy_hh_mm_ss") + "_" + backupname + ".zip";
+            //string zipname = game_title + "_" + DateTime.Now.ToString("MM_dd_yyyy_hh_mm_ss") + "_" + backupname + ".zip";
+            string zipname = DateTime.Now.ToString("MM_dd_yyyy_hh_mm_ss") + "_" + backupname + ".zip";
             ZipFile.CreateFromDirectory(savepath, backuppath + "\\" + zipname);
+        }
+        private void PopulateListBox(ListBox lsb, string Folder)
+        {
+
+            try
+            {
+                files = Directory.GetFiles(Folder);
+            }
+            catch(Exception e)
+            {
+                files[0] = "No backups found";
+            }
+
+
+            foreach (string file in files)
+            {
+                lsb.Items.Add(Path.GetFileNameWithoutExtension(file));
+            }
+
+
+        }
+
+        private void backup_savedata_button_Click(object sender, EventArgs e)
+        {
+            if (saveloaded & game_title != "NULL")
+            {
+                backupnameformcs BackupNameForm = new backupnameformcs();
+                BackupNameForm.ShowDialog();
+                if (String.IsNullOrWhiteSpace(Properties.Settings.Default.backupname))
+                {
+                    Properties.Settings.Default.backupname = "PSBackup";
+                }
+                backuptozip(Properties.Settings.Default.backupname, loadsavepath, savedata_dir );
+                refreshbackuplist();
+            }
+            else
+            {
+                MessageBox.Show("Please select the game and load a save first.");
+            }
+
         }
     }
 

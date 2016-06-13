@@ -136,7 +136,7 @@
             this.savedata_listbox.FormattingEnabled = true;
             this.savedata_listbox.Location = new System.Drawing.Point(6, 6);
             this.savedata_listbox.Name = "savedata_listbox";
-            this.savedata_listbox.Size = new System.Drawing.Size(147, 485);
+            this.savedata_listbox.Size = new System.Drawing.Size(207, 485);
             this.savedata_listbox.TabIndex = 0;
             // 
             // backup_savedata_button
@@ -147,6 +147,7 @@
             this.backup_savedata_button.TabIndex = 1;
             this.backup_savedata_button.Text = "Backup";
             this.backup_savedata_button.UseVisualStyleBackColor = true;
+            this.backup_savedata_button.Click += new System.EventHandler(this.backup_savedata_button_Click);
             // 
             // utilitiesToolStripMenuItem
             // 
