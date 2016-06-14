@@ -102,11 +102,11 @@ namespace PrecisionSaves
 
         int[] PKMN_AS_Wondercard_Offset =
         {
-            0x1CD00, 0x1CD01, 0xCD02, 0x1CD04, 0x1CD06, 0x1CD08, 0x1CD0C
+            0x1CD00, 0x1CD01, 0xCD02, 0x1CD04, 0x1CD06, 0x1CD08, 0x1CD0C, 0x1CD10
         };
         int[] PKMN_AS_Wondercard_Newvalue_Beldum =
         {
-            0xE0, 0x05, 0x49, 0x74, 0x27, 0x73, 0x61, 0x20
+            0xE0, 0x05, 0x49, 0x74, 0x27, 0x73, 0x61, 0x20, 0x53
         };
 
 
@@ -139,9 +139,16 @@ namespace PrecisionSaves
         private void timer_checker_Tick(object sender, EventArgs e)
         {
             if (savedata_listbox.SelectedIndex == -1)
+            {
                 restore_save_button.Enabled = false;
+                delete_save_button.Enabled = false;
+            }
             else
+            {
                 restore_save_button.Enabled = true;
+                delete_save_button.Enabled = true;
+            }
+
             string oldtitle = game_title;
             if (Properties.Settings.Default.gametitle == "")
             {
@@ -444,6 +451,18 @@ namespace PrecisionSaves
                     wipedir(loadsavepath);
                 else
                     MessageBox.Show("No savedata path loaded.", "PrecisionSaves");
+            }
+        }
+
+        private void delete_save_button_Click(object sender, EventArgs e)
+        {
+            var confirmbox = MessageBox.Show("Do you want to delete the backup?", "PrecisionSaves", MessageBoxButtons.YesNo);
+            if (confirmbox == DialogResult.Yes)
+            {
+                File.Delete(savedata_dir + "\\" + savedata_listbox.Items[savedata_listbox.SelectedIndex] + ".zip");
+                //System.Diagnostics.Debug.WriteLine(savedata_dir + "\\" + savedata_listbox.Items[savedata_listbox.SelectedIndex] + ".zip");
+                refreshbackuplist();
+                
             }
         }
     }
