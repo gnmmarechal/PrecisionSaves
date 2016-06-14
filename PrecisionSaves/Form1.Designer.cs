@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.menu_strip = new System.Windows.Forms.MenuStrip();
             this.loadSavedataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.savedataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintabcontrol = new System.Windows.Forms.TabControl();
             this.backups_page = new System.Windows.Forms.TabPage();
@@ -45,6 +44,8 @@
             this.installToSDCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wipeSavedataDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restore_save_button = new System.Windows.Forms.Button();
+            this.savedataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.writecheat_button = new System.Windows.Forms.Button();
             this.menu_strip.SuspendLayout();
             this.maintabcontrol.SuspendLayout();
             this.backups_page.SuspendLayout();
@@ -70,13 +71,6 @@
             this.loadSavedataToolStripMenuItem.Name = "loadSavedataToolStripMenuItem";
             this.loadSavedataToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.loadSavedataToolStripMenuItem.Text = "Load";
-            // 
-            // savedataToolStripMenuItem
-            // 
-            this.savedataToolStripMenuItem.Name = "savedataToolStripMenuItem";
-            this.savedataToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.savedataToolStripMenuItem.Text = "Savedata";
-            this.savedataToolStripMenuItem.Click += new System.EventHandler(this.savedataToolStripMenuItem_Click);
             // 
             // setToolStripMenuItem
             // 
@@ -110,6 +104,7 @@
             // 
             // editor_tab
             // 
+            this.editor_tab.Controls.Add(this.writecheat_button);
             this.editor_tab.Controls.Add(this.cheat_listbox);
             this.editor_tab.Location = new System.Drawing.Point(4, 22);
             this.editor_tab.Name = "editor_tab";
@@ -165,7 +160,7 @@
             this.installToSDCardToolStripMenuItem,
             this.wipeSavedataDirectoryToolStripMenuItem});
             this.savemanagerToolStripMenuItem.Name = "savemanagerToolStripMenuItem";
-            this.savemanagerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.savemanagerToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.savemanagerToolStripMenuItem.Text = "save_manager";
             // 
             // installToSDCardToolStripMenuItem
@@ -189,6 +184,24 @@
             this.restore_save_button.Text = "Restore";
             this.restore_save_button.UseVisualStyleBackColor = true;
             this.restore_save_button.Click += new System.EventHandler(this.restore_save_button_Click);
+            // 
+            // savedataToolStripMenuItem
+            // 
+            this.savedataToolStripMenuItem.Image = global::PrecisionSaves.Properties.Resources.savedataicon;
+            this.savedataToolStripMenuItem.Name = "savedataToolStripMenuItem";
+            this.savedataToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.savedataToolStripMenuItem.Text = "Savedata";
+            this.savedataToolStripMenuItem.Click += new System.EventHandler(this.savedataToolStripMenuItem_Click);
+            // 
+            // writecheat_button
+            // 
+            this.writecheat_button.Location = new System.Drawing.Point(754, 445);
+            this.writecheat_button.Name = "writecheat_button";
+            this.writecheat_button.Size = new System.Drawing.Size(75, 23);
+            this.writecheat_button.TabIndex = 1;
+            this.writecheat_button.Text = "Apply";
+            this.writecheat_button.UseVisualStyleBackColor = true;
+            this.writecheat_button.Click += new System.EventHandler(this.writecheat_button_Click);
             // 
             // mainform
             // 
@@ -230,6 +243,7 @@
         private System.Windows.Forms.ToolStripMenuItem installToSDCardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wipeSavedataDirectoryToolStripMenuItem;
         private System.Windows.Forms.Button restore_save_button;
+        private System.Windows.Forms.Button writecheat_button;
     }
 }
 
