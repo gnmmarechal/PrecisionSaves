@@ -24,6 +24,7 @@ namespace PrecisionSaves
         public string[] files;
         public bool saveloaded = false;
         public string filetoload = "";
+        public string savepath_original = "";
 
         //Cheat vars
 
@@ -97,7 +98,19 @@ namespace PrecisionSaves
             0x6568, 0x6588, 0x65A8, 0x65C8, 0x65E8, 0x6608, 0x6628, 0x6648, 0x6668, 0x6688
         };
 
-        //
+        //Pokémon: Alpha Sapphire (Values from comparison of PowerSaved savedata and regular savedata)
+
+        int[] PKMN_AS_Wondercard_Offset =
+        {
+            0x1CD00, 0x1CD01, 0xCD02, 0x1CD04, 0x1CD06, 0x1CD08, 0x1CD0C
+        };
+        int[] PKMN_AS_Wondercard_Newvalue_Beldum =
+        {
+            0xE0, 0x05, 0x49, 0x74, 0x27, 0x73, 0x61, 0x20
+        };
+
+
+
         public mainform()
         {
             InitializeComponent();
@@ -418,6 +431,19 @@ namespace PrecisionSaves
                     }
                     MessageBox.Show("Unlocked All Outfits!", "PrecisionSaves");
                 }
+            }
+        }
+
+        private void wipeSavedataDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var confirmbox = MessageBox.Show("Do you want to wipe the savedata directory?", "PrecisionSaves", MessageBoxButtons.YesNo);
+            if (confirmbox == DialogResult.Yes)
+            {
+
+                if (saveloaded)
+                    wipedir(loadsavepath);
+                else
+                    MessageBox.Show("No savedata path loaded.", "PrecisionSaves");
             }
         }
     }

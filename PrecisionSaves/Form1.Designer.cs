@@ -160,7 +160,7 @@
             this.installToSDCardToolStripMenuItem,
             this.wipeSavedataDirectoryToolStripMenuItem});
             this.savemanagerToolStripMenuItem.Name = "savemanagerToolStripMenuItem";
-            this.savemanagerToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.savemanagerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.savemanagerToolStripMenuItem.Text = "save_manager";
             // 
             // installToSDCardToolStripMenuItem
@@ -174,6 +174,7 @@
             this.wipeSavedataDirectoryToolStripMenuItem.Name = "wipeSavedataDirectoryToolStripMenuItem";
             this.wipeSavedataDirectoryToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.wipeSavedataDirectoryToolStripMenuItem.Text = "Wipe Savedata Directory";
+            this.wipeSavedataDirectoryToolStripMenuItem.Click += new System.EventHandler(this.wipeSavedataDirectoryToolStripMenuItem_Click);
             // 
             // restore_save_button
             // 
