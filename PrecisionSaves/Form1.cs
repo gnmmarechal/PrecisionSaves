@@ -306,7 +306,7 @@ namespace PrecisionSaves
             }
         }
 
-        private void MiraiDxUnlock(int offset, byte[] value)
+        private void hexedit(int offset, byte[] value)
         {
             FileStream miraiFS = new FileStream(save_file_original, FileMode.Open);
             BinaryWriter miraiBR = new BinaryWriter(miraiFS);
@@ -327,7 +327,7 @@ namespace PrecisionSaves
                 {
                     
                     byte[] value = { 0xF4, 0x23, 0x0F, 0x00 };
-                    MiraiDxUnlock(Project_Mirai_DX_MaxMP, value);
+                    hexedit(Project_Mirai_DX_MaxMP, value);
                     MessageBox.Show("MP Set to 992244!", "PrecisionSaves");
                 }
                 if (selectedcheat == "Unlock All Songs")
@@ -335,7 +335,7 @@ namespace PrecisionSaves
                     byte[] value = { 0xA0 };
                     foreach (var Song_offset in Project_Mirai_DX_Songs)
                     {
-                        MiraiDxUnlock(Song_offset + Project_Mirai_DX_AgentMoose, value);
+                        hexedit(Song_offset + Project_Mirai_DX_AgentMoose, value);
                     }
                     MessageBox.Show("All Songs Unlocked!", "PrecisionSaves");
                 }
@@ -344,13 +344,11 @@ namespace PrecisionSaves
                     byte[] value = { 0x01 };
                     foreach (var Song_offset in Project_Mirai_DX_Songs)
                     {
-                        //Unlock Hard Button
-                        MiraiDxUnlock(Song_offset + Project_Mirai_DX_deathwilldie, value);
+                        hexedit(Song_offset + Project_Mirai_DX_deathwilldie, value);
                     }
                     foreach (var Song_offset in Project_Mirai_DX_Songs)
                     {
-                        //Unlock Hard Touch
-                        MiraiDxUnlock(Song_offset + Project_Mirai_DX_SpankrPoodle, value);
+                        hexedit(Song_offset + Project_Mirai_DX_SpankrPoodle, value);
                     }
                     MessageBox.Show("All Hard/Super Hard Difficulties Unlocked!", "PrecisionSaves");
                 }
@@ -359,19 +357,19 @@ namespace PrecisionSaves
                     byte[] value = { 0x03 };
                     foreach (var items in Project_Mirai_DX_SmallItems[0])
                     {
-                        MiraiDxUnlock(items, value);
+                        hexedit(items, value);
                     }
                     foreach (var items in Project_Mirai_DX_MediumItems[0])
                     {
-                        MiraiDxUnlock(items, value);
+                        hexedit(items, value);
                     }
                     foreach (var items in Project_Mirai_DX_LargeItems[0])
                     {
-                        MiraiDxUnlock(items, value);
+                        hexedit(items, value);
                     }
                     foreach (var items in Project_Mirai_DX_AirItems[0])
                     {
-                        MiraiDxUnlock(items, value);
+                        hexedit(items, value);
                     }
                     MessageBox.Show("Unlocked All Items!", "PrecisionSaves");
                 }
@@ -380,7 +378,7 @@ namespace PrecisionSaves
                     byte[] value = { 0x03 };
                     foreach (var items in Project_Mirai_DX_SmallItems[0])
                     {
-                        MiraiDxUnlock(items, value);
+                        hexedit(items, value);
                     }
                     MessageBox.Show("Unlocked All Small Items!", "PrecisionSaves");
                 }
@@ -389,7 +387,7 @@ namespace PrecisionSaves
                     byte[] value = { 0x03 };
                     foreach (var items in Project_Mirai_DX_MediumItems[0])
                     {
-                        MiraiDxUnlock(items, value);
+                        hexedit(items, value);
                     }
                     MessageBox.Show("Unlocked All Medium Items!", "PrecisionSaves");
                 }
@@ -398,7 +396,7 @@ namespace PrecisionSaves
                     byte[] value = { 0x03 };
                     foreach (var items in Project_Mirai_DX_LargeItems[0])
                     {
-                        MiraiDxUnlock(items, value);
+                        hexedit(items, value);
                     }
                     MessageBox.Show("Unlocked All Large Items!", "PrecisionSaves");
                 }
@@ -407,7 +405,7 @@ namespace PrecisionSaves
                     byte[] value = { 0x03 };
                     foreach (var items in Project_Mirai_DX_AirItems[0])
                     {
-                        MiraiDxUnlock(items, value);  
+                        hexedit(items, value);  
                     }
                     MessageBox.Show("Unlocked All Air Items!", "PrecisionSaves");
                 }
@@ -416,7 +414,7 @@ namespace PrecisionSaves
                     byte[] value = { 0x03 };
                     foreach (var outfits in Project_Mirai_DX_Outfits)
                     {
-                        MiraiDxUnlock(outfits, value);
+                        hexedit(outfits, value);
                     }
                     MessageBox.Show("Unlocked All Outfits!", "PrecisionSaves");
                 }
