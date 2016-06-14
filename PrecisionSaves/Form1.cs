@@ -81,7 +81,21 @@ namespace PrecisionSaves
         {
             0x6EC0, 0x6EC8, 0x6ED0, 0x6ED8
         };
-
+        int[] Project_Mirai_DX_Outfits =
+{
+            0x56c8, 0x56E8, 0x5708, 0x5728, 0x5748, 0x5768, 0x5788, 0x57A8, 0x57C8, 0x57E8,
+            0x5808, 0x5828, 0x5848, 0x5868, 0x5888, 0x58A8, 0x58C8, 0x58E8, 0x5908, 0x5928,
+            0x5948, 0x5968, 0x5988, 0x59A8, 0x59C8, 0x59E8, 0x5A08, 0x5A28, 0x5A48, 0x5A68,
+            0x5A88, 0x5AA8, 0x5AC8, 0x5AE8, 0x5B08, 0x5B28, 0x5B48, 0x5B68, 0x5B88, 0x5BA8,
+            0x5BC8, 0x5C08, 0x5C28, 0x5C48, 0x5C68, 0x5C88, 0x5CA8, 0x5CC8, 0x5CE8, 0x5D08,
+            0x5D28, 0x5D48, 0x5D68, 0x5D88, 0x5DA8, 0x5DC8, 0x5DE8, 0x5E08, 0x5E28, 0x5E48,
+            0x5E68, 0x5E88, 0x5EA8, 0x5EC8, 0x5EE8, 0x5F08, 0x5F28, 0x5F48, 0x5F68, 0x5F88,
+            0x5FC8, 0x5FE8, 0x6008, 0x6028, 0x6048, 0x6068, 0x6088, 0x60A8, 0x60C8, 0x6108,
+            0x6128, 0x6148, 0x6168, 0x6188, 0x61A8, 0x61C8, 0x61E8, 0x6228, 0x6248, 0x6268,
+            0x6288, 0x62A8, 0x62C8, 0x62E8, 0x6328, 0x6348, 0x6368, 0x6388, 0x63A8, 0x63C8,
+            0x63E8, 0x6408, 0x6428, 0x6468, 0x6488, 0x64A8, 0x64C8, 0x64E8, 0x6508, 0x6548,
+            0x6568, 0x6588, 0x65A8, 0x65C8, 0x65E8, 0x6608, 0x6628, 0x6648, 0x6668, 0x6688
+        };
 
         //
         public mainform()
@@ -288,6 +302,7 @@ namespace PrecisionSaves
                 cheat_listbox.Items.Add("Unlock Medium Items");
                 cheat_listbox.Items.Add("Unlock Large Items");
                 cheat_listbox.Items.Add("Unlock Air items");
+                cheat_listbox.Items.Add("Unlock All Outfits");
             }
         }
 
@@ -392,9 +407,18 @@ namespace PrecisionSaves
                     byte[] value = { 0x03 };
                     foreach (var items in Project_Mirai_DX_AirItems[0])
                     {
-                        MiraiDxUnlock(items, value);
-                        MessageBox.Show("Unlocked All Air Items!", "PrecisionSaves");
+                        MiraiDxUnlock(items, value);  
                     }
+                    MessageBox.Show("Unlocked All Air Items!", "PrecisionSaves");
+                }
+                if (selectedcheat == "Unlock All Outfits")
+                {
+                    byte[] value = { 0x03 };
+                    foreach (var outfits in Project_Mirai_DX_Outfits)
+                    {
+                        MiraiDxUnlock(outfits, value);
+                    }
+                    MessageBox.Show("Unlocked All Outfits!", "PrecisionSaves");
                 }
             }
         }
