@@ -32,6 +32,24 @@ namespace PrecisionSaves
         int Project_Mirai_DX_AgentMoose = 0x98;
         int Project_Mirai_DX_deathwilldie = 0x20;
         int Project_Mirai_DX_SpankrPoodle = 0x60;
+        int Project_Mirai_DX_Wrench_King = 0x00;
+        int Project_Mirai_DX_Nirvash_TypeZero = 0x0c;
+        int Project_Mirai_DX_Badger41 = 0x10;
+        int Project_Mirai_DX_sKiLLz = 0x1c;
+
+        int Project_Mirai_DX_EBH = 0x04;
+        int Project_Mirai_DX_NBH = 0x14;
+        int Project_Mirai_DX_HBH = 0x24;
+        int Project_Mirai_DX_ETH = 0x44;
+        int Project_Mirai_DX_NTH = 0x54;
+        int Project_Mirai_DX_HTH = 0x64;
+
+        int Project_Mirai_DX_EBC = 0x0e;
+        int Project_Mirai_DX_NBC = 0x1e;
+        int Project_Mirai_DX_HBC = 0x2e;
+        int Project_Mirai_DX_ETC = 0x4e;
+        int Project_Mirai_DX_NTC = 0x5e;
+        int Project_Mirai_DX_HTC = 0x6e;
         int[] Project_Mirai_DX_Songs =
         {
             0x2750, 0x2848, 0x2940, 0x2A38, 0x2B30, 0x2C28, 0x2D20, 0x2E18, 0x2F10, 0x3008, 0x3100, 0x31F8, 0x32F0, 0x33E8,
@@ -323,6 +341,7 @@ namespace PrecisionSaves
                 cheat_listbox.Items.Add("Unlock Large Items");
                 cheat_listbox.Items.Add("Unlock Air items");
                 cheat_listbox.Items.Add("Unlock All Outfits");
+                cheat_listbox.Items.Add("Perfect All Songs");
             }
         }
 
@@ -437,6 +456,138 @@ namespace PrecisionSaves
                         hexedit(outfits, value);
                     }
                     MessageBox.Show("Unlocked All Outfits!", "PrecisionSaves");
+                }
+                if (selectedcheat == "Perfect All Songs")
+                {
+                    byte[] value1 = { 0xAA };
+                    byte[] value2 = { 0x05 };
+                    byte[] value3 = { 0x00 };
+                    byte[] value4 = { 0x3F, 0x42, 0x0F, 0x00 };
+                    byte[] value5 = { 0xE7, 0x03 };
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_AgentMoose, value1);
+                    }
+                    //All Easy Button Rank = Perfect
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_Wrench_King, value2);
+                    }
+                    //All Easy Button High Score = 999999
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_EBH, value4);
+                    }
+                    //All Easy Button Second Rank = S+
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_Nirvash_TypeZero, value3);
+                    }
+                    //All Easy Button Combo = 999
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_EBC, value5);
+                    }
+                    //All Normal Button Rank = Perfect
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_Badger41, value2);
+                    }
+                    //All Normal Button High Score = 999999
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_NBH, value4);
+                    }
+                    //All Normal Button Second Rank = S+
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_sKiLLz, value3);
+                    }
+                    //All Normal Button Combo = 999
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_NBC, value5);
+                    }
+                    //All Hard Button Rank = Perfect
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_deathwilldie, value2);
+                    }
+                    //All Hard Button High Score = 999999
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_HBH, value4);
+                    }
+                    //All Hard Button Second Rank = S+
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + reDFlag, value3);
+                    }
+                    //All Hard Button Combo = 999
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + HBC, value5);
+                    }
+                    //All Easy Touch Rank = Perfect
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + Vernon, value2);
+                    }
+                    //All Easy Touch High Score = 999999
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + ETH, value4);
+                    }
+                    //All Easy Touch Second Rank = S+
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + eYeDoL, value3);
+                    }
+                    //All Easy Touch Combo = 999
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + ETC, value5);
+                    }
+                    //All Normal Touch Rank = Perfect
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + SpankrPoodle2, value2);
+                    }
+                    //All Normal Touch High Score = 999999
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + NTH, value4);
+                    }
+                    //All Normal Touch Second Rank = S+
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + destructo, value3);
+                    }
+                    //All Normal Touch Combo = 999
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + NTC, value5);
+                    }
+                    //All Hard Touch Rank = Perfect
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + A051019194709_2, value2);
+                    }
+                    //All Hard Touch High Score = 999999
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + HTH, value4);
+                    }
+                    //All Normal Touch Second Rank = S+
+                    foreach (var Song_offset in Songs)
+                    {
+                        Unlock(Song_offset + Project_Mirai_DX_A051019194709_1, value3);
+                    }
+                    //All Hard Touch Combo = 999
+                    foreach (var Song_offset in Project_Mirai_DX_Songs)
+                    {
+                        hexedit(Song_offset + Project_Mirai_DX_HTC, value5);
+                    }
                 }
             }
         }
