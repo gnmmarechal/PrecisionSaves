@@ -625,7 +625,9 @@ namespace PrecisionSaves
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            string gametitle = Properties.Settings.Default.gametitle;
+            if (game_id == 0) gametitle = "No game selected";
+            this.Text = "Not-Datel PrecisionSaves - " + gametitle;
         }
     }
 

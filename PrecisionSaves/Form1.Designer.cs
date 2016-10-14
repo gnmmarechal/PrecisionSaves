@@ -126,7 +126,7 @@
             this.maintabcontrol.Controls.Add(this.backups_page);
             this.maintabcontrol.Controls.Add(this.editor_tab);
             this.maintabcontrol.Location = new System.Drawing.Point(24, 52);
-            this.maintabcontrol.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.maintabcontrol.Margin = new System.Windows.Forms.Padding(6);
             this.maintabcontrol.Name = "maintabcontrol";
             this.maintabcontrol.SelectedIndex = 0;
             this.maintabcontrol.Size = new System.Drawing.Size(1686, 1023);
@@ -139,9 +139,9 @@
             this.backups_page.Controls.Add(this.backup_savedata_button);
             this.backups_page.Controls.Add(this.savedata_listbox);
             this.backups_page.Location = new System.Drawing.Point(8, 39);
-            this.backups_page.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.backups_page.Margin = new System.Windows.Forms.Padding(6);
             this.backups_page.Name = "backups_page";
-            this.backups_page.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.backups_page.Padding = new System.Windows.Forms.Padding(6);
             this.backups_page.Size = new System.Drawing.Size(1670, 976);
             this.backups_page.TabIndex = 0;
             this.backups_page.Text = "Backup/Restore";
@@ -150,7 +150,7 @@
             // delete_save_button
             // 
             this.delete_save_button.Location = new System.Drawing.Point(1164, 900);
-            this.delete_save_button.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.delete_save_button.Margin = new System.Windows.Forms.Padding(6);
             this.delete_save_button.Name = "delete_save_button";
             this.delete_save_button.Size = new System.Drawing.Size(150, 44);
             this.delete_save_button.TabIndex = 3;
@@ -161,7 +161,7 @@
             // restore_save_button
             // 
             this.restore_save_button.Location = new System.Drawing.Point(1326, 900);
-            this.restore_save_button.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.restore_save_button.Margin = new System.Windows.Forms.Padding(6);
             this.restore_save_button.Name = "restore_save_button";
             this.restore_save_button.Size = new System.Drawing.Size(150, 44);
             this.restore_save_button.TabIndex = 2;
@@ -172,7 +172,7 @@
             // backup_savedata_button
             // 
             this.backup_savedata_button.Location = new System.Drawing.Point(1488, 900);
-            this.backup_savedata_button.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.backup_savedata_button.Margin = new System.Windows.Forms.Padding(6);
             this.backup_savedata_button.Name = "backup_savedata_button";
             this.backup_savedata_button.Size = new System.Drawing.Size(150, 44);
             this.backup_savedata_button.TabIndex = 1;
@@ -185,7 +185,7 @@
             this.savedata_listbox.FormattingEnabled = true;
             this.savedata_listbox.ItemHeight = 25;
             this.savedata_listbox.Location = new System.Drawing.Point(12, 12);
-            this.savedata_listbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.savedata_listbox.Margin = new System.Windows.Forms.Padding(6);
             this.savedata_listbox.Name = "savedata_listbox";
             this.savedata_listbox.Size = new System.Drawing.Size(410, 929);
             this.savedata_listbox.TabIndex = 0;
@@ -195,9 +195,9 @@
             this.editor_tab.Controls.Add(this.writecheat_button);
             this.editor_tab.Controls.Add(this.cheat_listbox);
             this.editor_tab.Location = new System.Drawing.Point(8, 39);
-            this.editor_tab.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.editor_tab.Margin = new System.Windows.Forms.Padding(6);
             this.editor_tab.Name = "editor_tab";
-            this.editor_tab.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.editor_tab.Padding = new System.Windows.Forms.Padding(6);
             this.editor_tab.Size = new System.Drawing.Size(1670, 976);
             this.editor_tab.TabIndex = 1;
             this.editor_tab.Text = "Save Editing";
@@ -206,7 +206,7 @@
             // writecheat_button
             // 
             this.writecheat_button.Location = new System.Drawing.Point(1508, 856);
-            this.writecheat_button.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.writecheat_button.Margin = new System.Windows.Forms.Padding(6);
             this.writecheat_button.Name = "writecheat_button";
             this.writecheat_button.Size = new System.Drawing.Size(150, 44);
             this.writecheat_button.TabIndex = 1;
@@ -219,7 +219,7 @@
             this.cheat_listbox.FormattingEnabled = true;
             this.cheat_listbox.ItemHeight = 25;
             this.cheat_listbox.Location = new System.Drawing.Point(12, 12);
-            this.cheat_listbox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cheat_listbox.Margin = new System.Windows.Forms.Padding(6);
             this.cheat_listbox.Name = "cheat_listbox";
             this.cheat_listbox.Size = new System.Drawing.Size(1642, 829);
             this.cheat_listbox.TabIndex = 0;
@@ -232,6 +232,7 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // mainform
@@ -243,7 +244,7 @@
             this.Controls.Add(this.menu_strip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menu_strip;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "mainform";
             this.Text = "Not-Datel PrecisionSaves";
             this.Load += new System.EventHandler(this.mainform_Load);
