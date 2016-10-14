@@ -24,6 +24,7 @@ namespace PrecisionSaves
         private void selectgame_button_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.gametitle = game_combobox.Text;
+
             this.Close();
         }
     }
